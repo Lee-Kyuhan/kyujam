@@ -1,0 +1,38 @@
+package study_algo;
+import java.util.*;
+public class algo_11403 {
+		static int edge;
+		static int[][] arr;
+		public static void main(String []args) {
+		Scanner sc = new Scanner(System.in);
+			edge = sc.nextInt();
+	    		 arr = new int[edge][edge];
+			for(int i=0; i<edge; i++) {
+			for(int j=0; j<edge; j++) {
+				arr[i][j] =sc.nextInt();
+			}
+		}
+			for(int i=0; i< edge ; i++) {
+			int [] visit = new int[edge];
+			bfs(i,visit, false);
+			for(int j=0; j<edge; j++) {
+				System.out.print(visit[j]);
+			}System.out.println();
+		}
+		
+	}
+	 static void bfs(int i, int [] visit , boolean check ) {
+		
+		if(check) {
+			visit[i] =1;
+		}
+			
+		for(int j=0; j< edge; j++) 
+		  {
+			if(arr[i][j] ==1 && visit[j] ==0) {
+				bfs(j,visit,true );
+			}
+		  }
+		}
+	}
+
